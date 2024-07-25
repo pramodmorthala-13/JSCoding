@@ -38,6 +38,7 @@ const myFil=(arr, fn)=>{
             res.push(arr[i])
         }
     }
+    return res;
 }
 
 const arr = [10,11,12];
