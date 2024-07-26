@@ -48,3 +48,18 @@ const fn2= function firstIndex(n,i){return i===0}
 console.log(myFil(arr,fn2))
 const fn3= function plusOne(n){return n+1}
 console.log(myFil(arr,fn3))
+
+//Filter pollyfill
+
+Array.prototype.myFil = function(fn){
+    let res=[];
+    for(let i=0;i<this.length;i++){
+        if(fn(this[i],i)){
+            res.push(this[i])
+        }
+    }
+    return res;
+}
+let arr1=[1,2,3,4]
+console.log(arr1.myFil(function(n){return n<4}))
+
