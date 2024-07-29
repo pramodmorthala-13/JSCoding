@@ -68,5 +68,20 @@ Array.prototype.myReduce= function(fn, init){
     }
     return acc
 }
-let arr=[1,2,3,4]
+let arr=[1,2,3,4];
 console.log(arr.myReduce(function(acc,curr){return acc+curr},0))
+
+
+//
+Array.prototype.myMap=function(logic,init){
+    let acc=init;
+    for(let i=0;i<this.length;i++){
+      acc= acc?logic(acc,this[i],i,this):this[i]
+    }
+    return acc;
+}
+
+let arr=[1,2,3];
+
+const res = arr.myMap((acc,cur)=>acc+cur,0)
+console.log(res)
