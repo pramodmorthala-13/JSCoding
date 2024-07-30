@@ -81,7 +81,7 @@ Array.prototype.myMap=function(logic,init){
     return acc;
 }
 
-let arr=[1,2,3];
+let arr1=[1,2,3];
 
-const res = arr.myMap((acc,cur)=>acc+cur,0)
+const res = arr1.myMap((acc,cur)=>acc+cur,0)
 console.log(res)
