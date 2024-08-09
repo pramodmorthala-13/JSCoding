@@ -85,3 +85,27 @@ let arr1=[1,2,3];
 
 const res = arr1.myMap((acc,cur)=>acc+cur,0)
 console.log(res)
+
+
+let data=[
+    {id:13,name:"Odie",city:"Leiden","mobile":"812-230-7436"},
+    {id:100,name:"Dimitry",city:"Dzerzhinskiy","mobile":"126-761-1659"},
+    {id:75,name:"Freeland",city:"Dzerzhinskiy","mobile":"418-813-7869"},
+    {id:17,name:"Tyrus",city:"Soutelo","mobile":"415-722-0258"},
+    {id:71,name:"Sherwynd",city:"Mburukullu","mobile":"166-449-9184"},
+    {id:49,name:"Marlow",city:"Soutelo","mobile":"345-896-1535"},
+    {id:23,name:"Dietrich",city:"Banjar Danginsema","mobile":"489-246-4157"},
+    {id:86,name:"Clevie",city:"Liupai","mobile":"613-486-8871"},
+    {id:98,name:"Alwin",city:"New Cebu","mobile":"109-480-7984"},
+    {id:79,name:"Murvyn",city:"Dzerzhinskiy","mobile":"449-672-1716"}];
+    
+    
+    const res1 = data.reduce((acc,curr)=>{
+        if(!acc[curr.city]){
+        acc[curr.city]=[]
+        }
+        acc[curr.city].push(curr)
+        return acc
+    },{})
+    
+    console.log(res)
