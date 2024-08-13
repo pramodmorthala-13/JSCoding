@@ -48,3 +48,24 @@ const febo=(n)=>{
 }
 
 console.log(febo(10))
+
+
+///////
+const dup=(str)=>{
+  let res="";
+  let seen = new Set();
+
+  for(let i=0;i<str.length;i++){
+    if(!seen.has(str[i]) || str[i-1] ==str[i]){
+      res+=str[i]
+      seen.add(str[i])
+    }
+  }
+  return res;
+}
+
+console.log(dup("hello"))
+
+
+
+}
