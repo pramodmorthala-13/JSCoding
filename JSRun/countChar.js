@@ -5,7 +5,7 @@ str = 'aaaaaaaaaaaaaaabbccc  kd'
 let charCount =1
 let res=''
 
-for(i=1; i<=str.length;i++){
+for(let i=1; i<=str.length;i++){
     if( str[i] ==str[i-1]){
         charCount+=1
     }else{
@@ -17,3 +17,17 @@ for(i=1; i<=str.length;i++){
 }
 
 console.log(res)
+
+//decode
+
+let decodedStr='';
+let count='';
+for(let i=0; i<res.length; i++){
+    if(!isNaN(res[i])){
+        count+=res[i]
+    }else{
+        decodedStr+=res[i].repeat(Number(count));
+        count='';
+    }
+}
+console.log(decodedStr)
