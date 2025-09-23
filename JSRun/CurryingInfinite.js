@@ -11,3 +11,13 @@ function add(first){
 
 console.log(add(1)(2)(3)(4)(5)())
 
+const sum=(a,b)=>{
+  if(a && b) return a+b;
+  return function(b){
+      return a+b;
+  }
+}
+
+
+console.log(sum(8,9))
+console.log(sum(8)(9))
