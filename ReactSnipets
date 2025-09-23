@@ -1,0 +1,34 @@
+import {useState,useEffect} from 'react';
+const CustomHook = (url)=>{
+    const [isLoading, setIsLoading] = useState(false)
+    const [data, setData] = useState(null)
+    const [error,setError] = useState(null)
+    
+    
+    const fetchData=async(url, controller)=>{
+        setIsLoading(true)
+        try{
+            const res = await fetch(url, {signal: controller.signal});
+             if(!res.ok){
+               throw new Error(`Error: ${res.status}`);
+            }
+            const json = await res.json()
+            setData(json)
+        }catch(e){
+            setError(e.message)
+        }finally{
+            setIsLoading(false)
+        }
+    
+    }
+    
+    useEffect(()=>{
+        if(!url) return;
+        const controller = new AbortController();
+        fetchData(url, controller)
+        return ()=>controller.abort();
+    },[url])
+   
+   return {isLoading, data, error} 
+}
+export default CustomHook;
