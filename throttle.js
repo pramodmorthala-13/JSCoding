@@ -3,10 +3,22 @@
 const myThrottle=(cb,delay)=>{
     let lastCall=0;
     return function(){
-        const now=new Date.now();
+        const now=Date.now();
         if(now-lastCall>=delay){
             cb();
             lastCall=now
+        }
+    }
+}
+
+
+const myThro=(cb,delay)=>{
+    let lastCall=0;
+    return (...args)=>{
+        const now=Date.now();
+        if(now-lastCall>=delay){
+            cb(...args);
+            lastCall=now;
         }
     }
 }
